@@ -1,0 +1,85 @@
+<!-- Menu lateral -->
+<ion-menu contentId="main-content">
+  <img src="assets/icon/user.png" alt="user">
+  <ion-content class="ion-padding">
+
+  <!--Opções do menu  -->
+    <ion-item routerLink="/listagens-contatos/">
+      <ion-label position="floating"></ion-label>
+      <p>Estoque</p>
+    </ion-item>
+
+    <ion-item routerLink="//">
+      <ion-label position="floating"></ion-label>
+      <p>Venda</p>
+    </ion-item>
+
+    <ion-item routerLink="//">
+      <ion-label position="floating"></ion-label>
+      <p>Historico de vendas</p>
+    </ion-item>
+
+    <ion-item routerLink="//">
+      <ion-label position="floating"></ion-label>
+      <p>Historico de compras</p>
+    </ion-item>
+
+    <ion-item routerLink="//">
+      <ion-label position="floating"></ion-label>
+      <p>Sair</p>
+    </ion-item>
+
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  
+<!-- barra de tarefas -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Storage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Corpo do app -->
+<ion-content>
+
+
+
+
+  <div class="corpo">
+
+<ion-list>
+      <!-- icone de foto -->
+    <ion-item *ngFor = 'let arrayPessoa of arrayPessoa' routerLink="/detalhes-contatos/{{arrayPessoa.id.value}}" detail="true" id="itens">
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      </ion-thumbnail>
+      <ion-label><h2>{{arrayPessoa.nome}}</h2>
+        <p>Size: {{arrayPessoa.tamanho}}</p>
+      </ion-label>
+    </ion-item>
+
+</ion-list>
+
+<!-- Botao de Adicionar e Vendas -->
+<ion-fab slot="fixed" vertical="bottom" horizontal="end" id="button_list">
+  <ion-fab-button>
+    <ion-icon name="chevron-up-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-icon name="add" routerLink="/detalhes-contatos/add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="cart" routerLink="/carrinho/"></ion-icon>
+    </ion-fab-button>
+
+    
+  </ion-fab-list>
+</ion-fab>
+</div>
+</ion-content>
+
